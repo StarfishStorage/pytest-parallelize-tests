@@ -43,5 +43,4 @@ class ParallelizePlugin:
         redis_test_key = self.synchronization_id + item.nodeid
         if self.redis.setnx(redis_test_key, self.part_id) == 0:
             pytest.skip(f"part {self.redis.get(redis_test_key).decode('utf-8')}")
-        else:
-            self.redis.expire(redis_test_key, self.EXPIRATION_TIME_S)
+        self.redis.expire(redis_test_key, self.EXPIRATION_TIME_S)

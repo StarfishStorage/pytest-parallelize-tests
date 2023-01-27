@@ -5,3 +5,4 @@ __pycache__/
 # Distribution / packaging
 *.egg-info/
 *.eggs/
+dist/
